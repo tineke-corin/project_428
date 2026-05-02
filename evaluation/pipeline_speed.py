@@ -7,6 +7,7 @@ from app.services.obscure import ObscureMethod
 from dataset_utils import load_test_dataset
 import argparse
 import time
+import os
 from app.services.image_context import ImageContext
 
 faceModel = FaceModel.YOLO_V11_FACE
