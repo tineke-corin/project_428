@@ -4,7 +4,7 @@ from pathlib import Path
 from app.services.detect_faces import process_faces, FaceModel
 from app.services.detect_vlps import process_plates, VLPModel
 from app.services.obscure import ObscureMethod
-from dataset_utils import load_test_dataset, load_difficult_dataset
+from dataset_utils import load_test_dataset
 import argparse
 import time
 from app.services.image_context import ImageContext
