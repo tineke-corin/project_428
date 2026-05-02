@@ -39,6 +39,12 @@ To test from Postman, specify the body as form-data and ensure the value type is
 
 ![Postman Example](postman-example.png)
 
+## Run in Google Colab
+
+You can use the file [COSC428_project_test.ipynb](https://githubtocolab.com/tineke-corin/project_428/blob/main/COSC428_project_test.ipynb) to run a pipeline speed test on various runtimes in Google Colab.
+
+Note that after cloning the github repository, you will need to add a 'models' directory underneath 'project_428' and upload `license_plate_detector.pt` and `yolov11l-face.pt` to that directory. These files can be downloaded from the links mentioned earlier in this document.
+
 ## License
 
 This project is licensed under the **GNU Affero General Public License v3.0 (AGPL-3.0)**. 
