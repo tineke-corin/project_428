@@ -1,0 +1,8 @@
+*.pt
+models/*
+__pycache__/*
+**/__pycache__/*
+
+dataset/
+dataset-difficult/
+images-for-eval/

@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Tineke Corin <tco111@uclive.ac.nz>"]
+readme = "README.md"
+
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.12.4"
+kagglehub = {extras = ["pandas-datasets"], version = "^1.0.0"}
+ultralytics = "^8.4.17"
+opencv-python = "^4.13.0.92"
+mediapipe = "^0.10.32"
+wget = "^3.2"
+retina-face = "^0.0.17"
+fastapi = "^0.135.1"
+uvicorn = "^0.42.0"
+python-multipart = "^0.0.22"
+tf-keras = "^2.21.0"
+huggingface-hub = "^1.7.2"
+torch = "^2.11.0"
+datasets = "3.6.0"
+pillow = "^12.1.1"
+pydantic-settings = "^2.13.1"
+
+[tool.poetry.scripts]
+start = "app.main:start"
+demo = "demo:main"
+eval-total-speed = "evaluation.pipeline_speed:main"
+eval-speed = "evaluation.speed:main"
+eval-faces = "evaluation.faces_accuracy:main"
+eval-plates = "evaluation.plates_accuracy:main"
+eval-efficacy = "evaluation.efficacy:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
