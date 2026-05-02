@@ -4,6 +4,7 @@ os.environ["TF_USE_LEGACY_KERAS"] = "1"
 import torch
 import cv2
 import mediapipe as mp
+import wget
 
 from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
