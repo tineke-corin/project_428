@@ -1,5 +1,5 @@
 # Use official Python 3.12 slim image
-FROM python:3.12-slim
+FROM --platform=linux/amd64 python:3.12-slim
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1 \
@@ -15,6 +15,8 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglib2.0-0 \
+    libgles2 \
+    libegl1 \
     git \
     wget \
     curl \
@@ -27,12 +29,13 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 WORKDIR /app
 
 # Copy dependency files
-COPY pyproject.toml poetry.lock ./
+COPY pyproject.toml ./
 
 # Install dependencies
 RUN poetry install --no-interaction --no-ansi --no-root
 
 # Copy the rest of the application
+COPY models ./models
 COPY . .
 
 # Install the root project

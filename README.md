@@ -15,7 +15,9 @@ To run the demo:
 
 ## Run the API with Docker
 
-1. Build the Docker image:
+1. You will need pre-trained model weights for the two detection models. Place these in a `models` directory in the project root. They should be called `yolov11l-face.pt` and `licence_plate_detector.pt`. Make sure these are in place before building the docker image.
+
+2. Build the Docker image:
    ```bash
    docker build -t anonymiser-api .
    ```
