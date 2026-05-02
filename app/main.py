@@ -1,15 +1,10 @@
 import uvicorn
 from fastapi import FastAPI
+from app.api.v1.images import router as images_router
 
 app = FastAPI()
 
-@app.get("/")
-async def root():
-    return { "message": "OH HAI" }
-
-@app.post("/")
-async def post_image():
-    return { "message": "You posted!" }
+app.include_router(images_router, prefix="/api/v1/images", tags=["images"])
 
 def start():
     """Launched with `poetry run start` at root level"""

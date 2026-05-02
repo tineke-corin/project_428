@@ -19,21 +19,19 @@ def main():
     parser = argparse.ArgumentParser(description="Anonymisation speed test")
     parser.add_argument("--directory", default='dataset', help="Dataset directory", required=False)
     args = parser.parse_args()
-    dataset = load_test_dataset(args.directory)
 
-    for elt in dataset:
-      start_time = time.perf_counter_ns()
-      image = elt['image']
-      img_np = np.array(image)
-      cv_image = cv2.cvtColor(img_np, cv2.COLOR_RGB2BGR)
-      ctx = ImageContext(cv_image)  
+    for filename in os.listdir(args.directory):
+      if filename.endswith((".jpg", ".png", ".jpeg")):
+        cv_image = cv2.imread(os.path.join(args.directory, filename))
+        ctx = ImageContext(cv_image)
+        start_time = time.perf_counter_ns()
   
-      _t = process_faces(ctx, model=faceModel, method=method)
-      _t = process_plates(ctx, model=vlpModel, method=method)
-      end_time = time.perf_counter_ns()
-      elapsed_time = end_time - start_time
-      counter += 1
-      total_time += elapsed_time
+        _t = process_faces(ctx, model=faceModel, method=method)
+        _t = process_plates(ctx, model=vlpModel, method=method)
+        end_time = time.perf_counter_ns()
+        elapsed_time = end_time - start_time
+        counter += 1
+        total_time += elapsed_time
 
     avg_time = (total_time / counter)
     print(f'Detect + obscure average time = {avg_time} nanoseconds ({ (avg_time / 1_000_000) } milliseconds)')
