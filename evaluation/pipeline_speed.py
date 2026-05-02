@@ -18,7 +18,7 @@ def main():
     counter = 0
     total_time = 0
     parser = argparse.ArgumentParser(description="Anonymisation speed test")
-    parser.add_argument("--directory", default='dataset', help="Dataset directory", required=False)
+    parser.add_argument("--directory", default='dataset', help="Dataset directory", required=True)
     args = parser.parse_args()
 
     for filename in os.listdir(args.directory):
