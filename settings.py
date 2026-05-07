@@ -17,7 +17,7 @@ class Settings(BaseSettings):
   # Obscuration settings
   face_obscure_padding: float = 0.3   # Pads the ROI by 30%
   plate_obscure_padding: float = 0.15   # Pads the ROI by 15%
-  kernel_proportion: float = 1.0 # For Guassian blur
+  kernel_proportion: float = 0.5 # For Guassian blur
   pixel_proportion: float = 0.25 # For pixelation
   noise_std_dev: int = 25        # Standard deviation value for Gaussian noise
 
