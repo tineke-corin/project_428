@@ -43,11 +43,12 @@ def gaussian_blur(roi, shape):
   height, width = shape
   side = max(width, height)
 
-  # the nearest odd number to side/2
+  # the nearest odd number to the configured proportion of the side
   k = int(side * settings.kernel_proportion)
   if (k % 2 == 0):
     k += 1
 
+  # Passing 0 for sigmaX lets cv2 calculate sigmaX and sigmaY based on kernel size
   out = cv2.GaussianBlur(roi, (k, k), 0)
   return out
 
